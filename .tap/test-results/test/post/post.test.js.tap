@@ -1,0 +1,56 @@
+TAP version 14
+2024-07-26T15:56:50.308Z [[32minfo[39m]: Server is running at http://localhost:3000
+# Subtest: POST /api/v1/posts - Create a new post
+    ok 1 - Status should be 201 Created
+    ok 2 - Response should contain post id
+    ok 3 - Title should match
+    ok 4 - Content should match
+2024-07-26T15:56:50.325Z [[32minfo[39m]: [{"type":"field","msg":"Title must be a string","path":"title","location":"body"},{"type":"field","msg":"Title is required","path":"title","location":"body"}]
+    ok 5 - Status should be 400 Bad Request
+    ok 6 - Error should indicate title is required
+2024-07-26T15:56:50.328Z [[32minfo[39m]: [{"type":"field","value":123,"msg":"Title must be a string","path":"title","location":"body"}]
+    ok 7 - Status should be 400 Bad Request
+    ok 8 - Error should indicate title must be a string
+2024-07-26T15:56:50.329Z [[32minfo[39m]: [{"type":"field","msg":"Content must be a string","path":"content","location":"body"},{"type":"field","msg":"Content is required","path":"content","location":"body"}]
+    ok 9 - Status should be 400 Bad Request
+    ok 10 - Error should indicate content is required
+    1..10
+ok 1 - POST /api/v1/posts - Create a new post # time=26.795ms
+
+# Subtest: PUT /api/v1/posts/:id - Update a post
+    ok 1 - Status should be 200 OK
+    ok 2 - Title should be updated
+    ok 3 - Content should be updated
+2024-07-26T15:56:50.335Z [[32minfo[39m]: [{"type":"field","value":"invalidId","msg":"Invalid post ID format","path":"id","location":"params"}]
+    ok 4 - Status should be 400 Bad Request
+    ok 5 - Error should indicate invalid ID format
+2024-07-26T15:56:50.338Z [[32minfo[39m]: [{"type":"field","value":123,"msg":"Title must be a string","path":"title","location":"body"}]
+    ok 6 - Status should be 400 Bad Request
+    ok 7 - Error should indicate title must be a string
+2024-07-26T15:56:50.340Z [[32minfo[39m]: [{"type":"field","value":456,"msg":"Content must be a string","path":"content","location":"body"}]
+    ok 8 - Status should be 400 Bad Request
+    ok 9 - Error should indicate content must be a string
+    1..9
+ok 2 - PUT /api/v1/posts/:id - Update a post # time=10.043ms
+
+# Subtest: GET /api/v1/posts - List posts with pagination
+    ok 1 - Status should be 200 OK
+    ok 2 - Response should contain posts
+    ok 3 - Response should contain posts array
+2024-07-26T15:56:50.346Z [[32minfo[39m]: [{"type":"field","value":"-1","msg":"Page must be a positive integer","path":"page","location":"query"}]
+    ok 4 - Status should be 400 Bad Request
+    ok 5 - Error should indicate page must be a positive integer
+2024-07-26T15:56:50.348Z [[32minfo[39m]: [{"type":"field","value":"abc","msg":"Limit must be a positive integer","path":"limit","location":"query"}]
+    ok 6 - Status should be 400 Bad Request
+    ok 7 - Error should indicate limit must be a positive integer
+    1..7
+ok 3 - GET /api/v1/posts - List posts with pagination # time=7.61ms
+
+# Subtest: DELETE /api/v1/posts/:id - Delete a post
+    ok 1 - Status should be 204 No Content
+    ok 2 - Status should be 404 Not Found after deletion
+    ok 3 - Status should be 404 Not Found for non-existent post
+    1..3
+ok 4 - DELETE /api/v1/posts/:id - Delete a post # time=5.034ms
+
+1..4

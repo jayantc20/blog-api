@@ -1,0 +1,38 @@
+{
+  "name": "blog-api",
+  "version": "1.0.0",
+  "description": "Blog Api",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "NODE_ENV=production node src/app.js",
+    "start:dev": "NODE_ENV=development nodemon src/index.js",
+    "pretest": "node -e \"if (process.version.slice(1).split('.')[0] < 18) { console.error('Unsupported Node.js version, please use version 18'); process.exit(1); }\"",
+    "test": "NODE_ENV=development tap test/**/*.js --disable-coverage",
+    "loadtest": "NODE_ENV=development node loadtest.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autocannon": "^7.15.0",
+    "body-parser": "^1.20.2",
+    "compression": "^1.7.4",
+    "config": "^3.3.12",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "express-validator": "^7.1.0",
+    "helmet": "^7.1.0",
+    "winston": "^3.13.1",
+    "xss-clean": "^0.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4",
+    "supertest": "^7.0.0",
+    "tap": "^21.0.0"
+  },
+  "engines": {
+    "node": ">= 18.0.0"
+  }
+}

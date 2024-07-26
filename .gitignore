@@ -1,0 +1,42 @@
+# Node.js
+node_modules/
+
+# TypeScript
+*.tsbuildinfo
+# *.js
+# *.js.map
+
+# Build output
+dist/
+build/
+
+# Visual Studio Code
+.vscode/
+
+# Configuration files
+config/
+.env
+
+# Logs
+logs/
+*.log
+
+# Dependency directories
+# (e.g., npm, yarn)
+vendor/
+
+# IDE (e.g., WebStorm) files
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# npm package lock
+package-lock.json
+yarn.lock
