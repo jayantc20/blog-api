@@ -15,16 +15,20 @@ const createValidator = (validations) => [
 
 const createPostValidator = createValidator([
     body('title')
-        .isString()
-        .withMessage('Title must be a string')
         .notEmpty()
-        .withMessage('Title is required'),
+        .withMessage('Title is required')
+        .bail()
+        .isString()
+        .withMessage('Title must be a string'),
+
 
     body('content')
-        .isString()
-        .withMessage('Content must be a string')
         .notEmpty()
-        .withMessage('Content is required'),
+        .withMessage('Content is required')
+        .bail()
+        .isString()
+        .withMessage('Content must be a string'),
+
 ]);
 
 const updatePostValidator = createValidator([

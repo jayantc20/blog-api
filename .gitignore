@@ -21,6 +21,8 @@ config/
 logs/
 *.log
 
+.tap/
+*.tap
 # Dependency directories
 # (e.g., npm, yarn)
 vendor/
