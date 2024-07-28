@@ -87,6 +87,8 @@ This API uses API keys for authentication. You need to include an x-api-key head
 
 - **Search Query:** Future enhancement to support complex queries and filters, such as searching by multiple fields or applying fuzzy matching.
 
+-- **Background Job Queue (e.g., BullMQ)** BullMQ can distribute cache update tasks across multiple workers, enhancing scalability and ensuring the main application remains responsive even under high load. It also provides built-in error handling and retry mechanisms, allowing failed cache update jobs to be retried automatically without impacting the main application flow.
+
 ## Postman Collection
 
 You can import and test the APIs using the [Postman Collection](https://github.com/jayantc20/Blog-API/blob/main/Blog-API.postman_collection.json).
